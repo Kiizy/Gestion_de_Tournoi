@@ -15,7 +15,7 @@ import javax.swing.JTextField;
 public class FenetreMenu extends JFrame implements ActionListener{
 
 
-	private JButton boutCommencer;
+	private JButton boutCommencer, boutAjout, boutTournois, boutEquipes;
 	private JPanel panFen, panAccueil;
 	private JLabel labAccueil;
 	private JTextField nbEquipe, nbJoueurs, nbRemplacents;
@@ -35,9 +35,12 @@ public class FenetreMenu extends JFrame implements ActionListener{
 		
 		labAccueil = new JLabel();
 		labAccueil.setText("Bienvenue dans l'application de gestion de tournois Maison des Ligues.");
+		labAccueil.setText("Vous trouverez ici les differentes rurbriques qui vous premettrons de visionner, modifier, ajouter ou supprimer des tournois");
 
 		boutCommencer = new JButton("Commencer");
-		
+		boutCommencer.addActionListener(this);
+
+		boutEquipes  = new JButton("Equipes");
 		
 		panFen.add(panAccueil);
 		panAccueil.add(labAccueil);
@@ -55,7 +58,10 @@ public class FenetreMenu extends JFrame implements ActionListener{
 	
 	
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		
+		if (e.getSource() == boutCommencer){
+		panAccueil.add(boutEquipes);
+		}
 		
 	}
 
