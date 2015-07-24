@@ -2,8 +2,7 @@
 public class Equipe {
 	
 //ATTRIBUT
-	private int nbJoueurs=0;
-	private int nbRemplacants=0;
+	private int nbJoueurs=0 , nbRemplacants=0 , num;
 	private static int nbEquipe;
 
 	
@@ -21,6 +20,7 @@ public class Equipe {
 	}
 
 //METHODE
+	
 	
 	
 //GETTERS-SETTERS
