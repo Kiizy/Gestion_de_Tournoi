@@ -26,19 +26,23 @@ public class FenetreMenu extends JFrame implements ActionListener{
 	public FenetreMenu()
 	{
 		this.setTitle("Gestion de Tournoi");
-		this.setSize(900, 700);
+		this.setSize(1100, 700);
 		
 		panFen = new JPanel();
 		panFen.setBackground(Color.DARK_GRAY);
 		
 		panAccueil = new JPanel();
 		panAccueil.setBackground(Color.lightGray);
-		panAccueil.setPreferredSize(new Dimension(800, 600));
+		panAccueil.setPreferredSize(new Dimension(900, 600));
 //		panAccueil.setLayout(new BoxLayout());
 		
+		/**On va utiliser le langage html pour ce qui est des text car ce sera beaucoup simple a gerer*/
+		
 		labAccueil = new JLabel();
-		labAccueil.setText("Bienvenue dans l'application de gestion de tournois Maison des Ligues.");
-		labAccueil.setText("Vous trouverez ici les differentes rurbriques qui vous premettrons de visionner, modifier, ajouter ou supprimer des tournois");
+		labAccueil.setText("<html><h1>Bienvenue dans l'application de gestion de tournois Maison des Ligues.</h1>"
+				+ "<br><br><br><p>Vous trouverez ici les differentes rurbriques qui vous premettrons de visionner, modifier, ajouter ou supprimer des tournois</p>"
+				+ "<br><br><center><p>Cliquez sur le bouton pour commencer.</p></center><br><br></html>");
+//		labAccueil.setText("");
 
 		boutCommencer = new JButton("Commencer");
 		boutCommencer.addActionListener(this);
