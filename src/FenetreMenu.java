@@ -29,18 +29,24 @@ public class FenetreMenu extends JFrame implements ActionListener{
 		this.setTitle("Gestion de Tournoi");
 		this.setSize(1100, 700);
 		
+		//PRINCIPAL PANEL, RESTE LE MEME TOUT LE TEMPS
+		
 		panFen = new JPanel();
 		panFen.setBackground(Color.RED);
 		
+		
+		//PANEL ACCUEIL
 		panAccueil = new JPanel();
 		panAccueil.setBackground(Color.WHITE);
 		panAccueil.setPreferredSize(new Dimension(900, 600));
 //		panAccueil.setLayout(new BoxLayout());
 		
+		//PANEL MENU
 		panMenu = new JPanel();
 		panMenu.setBackground(Color.white);
 		panMenu.setPreferredSize(new Dimension(900, 600));
 
+		//TEST DE FONT
 		Font policeHuge = new Font("Fipps",Font.ITALIC,20);
 		
 		Font police = new Font("Built titling rg",Font.BOLD,30);
@@ -66,7 +72,7 @@ public class FenetreMenu extends JFrame implements ActionListener{
 		labMenu.setText("<html><br><br><h2>Vous pouvez consulter les tournois "
 				+ "en cours ou bien en creer en cliquant sur les boutons ci-dessous :</h2><br /><br /><br /></html>");
 		
-
+		//BOUTONS//
 
 		boutCommencer = new JButton("Commencer");
 		boutCommencer.setFont(policeHuge);
@@ -79,6 +85,8 @@ public class FenetreMenu extends JFrame implements ActionListener{
 		boutAjout  = new JButton("Ajout");
 		boutAjout.setFont(policeHuge);
 		boutAjout.addActionListener(this);
+		
+		//AJOUT DES COMPOSANTS//
 		
 		panFen.add(panAccueil);
 		panAccueil.add(labAccueilT);
@@ -114,7 +122,7 @@ public class FenetreMenu extends JFrame implements ActionListener{
 		}else if (e.getSource() == boutAjout){
 			
 			
-			FenetreTournoi test = new FenetreTournoi();
+			FenetreTournoi fenTournoi = new FenetreTournoi();
 			
 		//	}else if (e.getSource() == boutAjout){
 		//	demander a lutilisateur le nombre dequipe, de joueurs et de remplacant
