@@ -18,10 +18,11 @@ import javax.swing.JTextField;
 public class FenetreMenu extends JFrame implements ActionListener{
 
 
-	private JButton boutCommencer, boutAjout, boutTournois, boutEquipes;
-	private JPanel panFen, panAccueil, panMenu;
-	private JLabel labAccueilT, labAccueil,labMenuT, labMenu;
+	private JButton boutCommencer, boutAjout, boutTournois, boutEquipes, boutMenu;
+	private JPanel panFen, panAccueil, panMenu, panAffichageTournois;
+	private JLabel labAccueilT, labAccueil,labMenuT, labMenu, labFonctio, labAffichageTournois;
 	private JTextField nbEquipe, nbJoueurs, nbRemplacents;
+	private String text;
 	//private ArrayList<Tournoi> tournois = new ArrayList<Tournoi>();
 	
 	public FenetreMenu()
@@ -45,6 +46,11 @@ public class FenetreMenu extends JFrame implements ActionListener{
 		panMenu = new JPanel();
 		panMenu.setBackground(Color.white);
 		panMenu.setPreferredSize(new Dimension(900, 600));
+		
+		//PANEL AFFICHAGE
+		panAffichageTournois = new JPanel();
+		panAffichageTournois.setBackground(Color.WHITE);
+		panAffichageTournois.setPreferredSize(new Dimension(900, 600));
 
 		//TEST DE FONT
 		Font policeHuge = new Font("Fipps",Font.ITALIC,20);
@@ -53,10 +59,12 @@ public class FenetreMenu extends JFrame implements ActionListener{
 		
 		/**On va utiliser le langage html pour ce qui est des text car ce sera beaucoup simple a gerer*/
 		
+		text = "Bienvenue dans l application de gestion de tournois Maison des Ligues.";
+		
 		labAccueilT = new JLabel();
 		labAccueilT.setFont(police);
-		labAccueilT.setText("Bienvenue dans l'application de gestion de tournois Maison des Ligues.");
-
+		labAccueilT.setText(text);
+		
 		labAccueil = new JLabel();
 	//	labAccueil.setFont(police);
 		labAccueil.setText("<html><br><br><br><p>Vous trouverez ici les differentes rurbriques qui vous premettrons de visionner, modifier, ajouter ou supprimer des tournois</p>"
@@ -65,12 +73,19 @@ public class FenetreMenu extends JFrame implements ActionListener{
 		
 		labMenuT = new JLabel();
 		labMenuT.setFont(police);
-		labMenuT.setText("Veuilliez à present choisir l'action à executer");
+		labMenuT.setText("Veuilliez à present choisir l'action à éxécuter");
 		
 		labMenu = new JLabel();
 //		labMenu.setFont();
 		labMenu.setText("<html><br><br><h2>Vous pouvez consulter les tournois "
 				+ "en cours ou bien en creer en cliquant sur les boutons ci-dessous :</h2><br /><br /><br /></html>");
+		
+	/*	labFonctio = new JLabel();
+		labFonctio.setText("<html><p>Faire un paragraphe explicatif</p></html>");*/
+		
+		labAffichageTournois = new JLabel();
+		labAffichageTournois.setFont(police);
+		labAffichageTournois.setText("Le bouton qui suit, ne fonctionne pas... :,( ==> ");
 		
 		//BOUTONS//
 
@@ -86,19 +101,28 @@ public class FenetreMenu extends JFrame implements ActionListener{
 		boutAjout.setFont(policeHuge);
 		boutAjout.addActionListener(this);
 		
+		boutMenu = new JButton("Menu");
+		boutMenu.setFont(policeHuge);
+		boutMenu.addActionListener(this);
+		
 		//AJOUT DES COMPOSANTS//
 		
+		//1er affichage
 		panFen.add(panAccueil);
 		panAccueil.add(labAccueilT);
 		panAccueil.add(labAccueil);
-
 		panAccueil.add(boutCommencer);
+	//	panAccueil.add(labFonctio);
 		
+		//2nd affichage
 		panMenu.add(labMenuT);
 		panMenu.add(labMenu);
 		panMenu.add(boutAjout);
 		panMenu.add(boutTournois);
-
+		
+		//affichage tournois
+		panAffichageTournois.add(labAffichageTournois);
+		panAffichageTournois.add(boutMenu);
 		
 		
 		this.getContentPane().add(panFen);
@@ -108,28 +132,33 @@ public class FenetreMenu extends JFrame implements ActionListener{
 	}
 	
 
-	
-	
-	
+
 	public void actionPerformed(ActionEvent e) {
 		
-		if (e.getSource() == boutCommencer){
+		if (e.getSource() == boutCommencer || e.getSource() == boutMenu){
 			
 			panFen.removeAll();
 			panFen.add(panMenu);
 			validate();
-			
-		}else if (e.getSource() == boutAjout){
+		}
+		
+		if (e.getSource() == boutAjout){
 			
 			
 			FenetreTournoi fenTournoi = new FenetreTournoi();
 			
-		//	}else if (e.getSource() == boutAjout){
-		//	demander a lutilisateur le nombre dequipe, de joueurs et de remplacant
-		//	Tournoi tour = new Tournoi(7/*int nbEquipe*/, 10/*int nbJoueurs*/, 3/*int nbRemplacant*/);
-		//	tournois.add(tour);
-		//	System.out.println(tournois);
 		}
+		
+		if (e.getSource() == boutTournois){
+	
+			panFen.removeAll();
+			panFen.add(panAffichageTournois);
+			validate();
+			
+
+			}
+		
+
 	}
 			
 		

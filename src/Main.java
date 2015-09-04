@@ -2,9 +2,10 @@
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		// POUF fonction
 		FenetreMenu fen = new FenetreMenu();
+		
+		
 		
 	}
 
