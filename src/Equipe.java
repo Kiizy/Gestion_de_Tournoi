@@ -1,7 +1,7 @@
 
 public class Equipe {
 	
-//ATTRIBUT
+//ATTRIBUT///////
 	private int nbJoueurs=0 , nbRemplacants=0 , num;
 	private static int nbEquipe;
 
